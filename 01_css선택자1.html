@@ -15,6 +15,21 @@
             color:blueviolet;
          }
 
+         /* ID 선택자 테스트 */ /* 태그 선택자보다 ID 선택자가 우선순위가 높다. */
+         #id2 {
+            background: yellow;
+            color: green;
+         }
+         /* Class 선택자 테스트 */
+         .class1{
+            background: bisque;
+            color: blue;
+         }
+         .class2{
+            background: chartreuse;
+            color: coral;
+         }
+
     </style>
 </head>
 <body>
@@ -39,6 +54,29 @@
         <hr>
         <h2> 아이디 선택자 </h2>
         <p> HTML 문서 내에 해당하는 ID 속성을 가진 태그를 선택한다. </p>
+        <!-- 24-10-17 (목) 3교시 -->
+        <p> 아이디를 나타내는 기호(#)- #아이디명{꾸밀값} </p>
+     <!-- ol>li#id$*5{ID 선택자 테스트$} -->
+     <ol>
+        <li id="id1">ID 선택자 테스트1</li>
+        <li id="id2">ID 선택자 테스트2</li>
+        <li id="id3">ID 선택자 테스트3</li>
+        <li id="id4">ID 선택자 테스트4</li>
+        <li id="id5">ID 선택자 테스트5</li>
+     </ol>
+
+     <hr>
+     <h2> 클래스 선택자 </h2>
+     <p> HTML 문서 내에서 동일한 클래스명을 가진 태그를 선택 </p>
+     <p> 클래스 명을 나타내는 기호 : (.) → .클래스명{바꿀값} </p>
+    <!-- ul>li.class${클래스 선택자 테스트$}*5 -->
+    <ul>
+        <li class="class1" id="id2">클래스 선택자 테스트1</li>
+        <li class="class2">클래스 선택자 테스트2</li>
+        <li class="class1">클래스 선택자 테스트3</li>
+        <li class="class2">클래스 선택자 테스트4</li>
+        <li class="class1">클래스 선택자 테스트5</li>
+    </ul>
 
 </body>
 </html>

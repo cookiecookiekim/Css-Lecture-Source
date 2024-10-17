@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!-- 3교시, 이어서-->
+    <style>
+        /* HTML 문서 내(header)에 style 정의하는 방식 → 내부 스타일 시트 방식 */
+
+        /* 속성 값과 일치하는 객체(태그, 요소) 선택 */
+        div[name=name2]{ /* 만약 name이라는 속성이 name2라면 수정하겠다~~*/
+            background: orange;
+        }
+        /* 속성 안의 값이 특정 값을 띄어쓰기 단위로 포함하는 객체 선택 */
+        div[name~=name6]{/* name1 띄고 name5 띄고 name6 인식 */
+            background: lemonchiffon;
+        }
+        /* 속성 값이 특정 값과 일치하거나 '-'문자가 곧바로 해당 값 뒤에 붙이는 객체 선택 */
+        div[class|=class]{ /* |= class 혹은 class- 에 해당하는 애들 선택 */
+            background : cadetblue;
+        }
+        /* 속성 값을 가지고 있으며, 접두사로 값이 포함되어 있는 객체 선택 */
+        div[name^=name]{ /* 포함한 애들 다 선택 */
+            background : blue;
+        }
+        /* 속성 안의 값이 특정 값으로 끝나는(접미사) 객체 선택 */
+        div[class$=class]{ /* class 로 '끝나'는 애들만 적용 */
+            color : white;
+        }
+        /* 속성 안의 값이 특정 값을 포함하는 객체 선택 */
+        div[class*=div]{ /* div를 포함하는 모든 객체 선택 */
+            background: rebeccapurple;
+            color: aquamarine;
+        }
+        /* 자손 선택자 테스트 */
+        #test1>h4 {
+            background : hotpink;
+        }
+        #test1>ul>li { /* 자식이 아니라 후손이라 적용되지 않음. 후손 선택은?*/
+            background: cyan;
+        }
+        /* 후손 선택자 테스트 */ /* 후손은 그냥 띄고 입력 */
+        #test1 ul {
+            background: yellow;
+        }
+        /* 형제 관계 선택자 (동위 선택자) */
+
+    </style>
+</head>
+<body>
+    <h1> CSS 선택 내부 속성 방식 </h1>
+    <hr>
+    <h2> 기본 속성 선택자 </h2>
+    <p> 기본 선택자 뒤에 [] 기호를 사용하여 속석과 속성 값을 사용할 수 있다.
+        주로 id나 클래스 속성이 아닌 것들에 적용
+        <br>
+        선택자[속성명=속성값]{설정할 내용}
+    </p>
+    <!-- div.div-class{div$}*4 -->
+    <div name="name1 name5 name6" class="div-class">div1</div>
+    <div name="name2" class="div-class">div2</div>
+    <div name="name3" class="div-class">div3</div>
+    <div name="name4" class="class-div">div4</div>
+
+    <hr>
+    <h2> 후손 선택자와 자손 선택자 </h2>
+    <p> 자손 선택자 : 바로 아래에 있는 요소
+        후손 선택자 : 하위 요소 전부를 의미 </p>
+
+    <div id="test1"> <!-- 관계 파악하기 -->
+        <h4> 자손 1번 입니다. </h4> <!-- 자식 -->
+        <h4> 자손 2번 입니다. </h4> <!-- 자식 -->
+        <div>  <!-- 자식 -->
+            <ul id="testu1">리스트  <!-- 후손 -->
+                <li> ul태그의 자손이면서, div 태그의 후손 </li> <!-- 후손 -->
+                <li> ul태그의 자손이면서, div 태그의 후손 </li> <!-- 후손 -->
+            </ul>
+        </div>  <!-- 자식 -->
+</body>
+</html>
