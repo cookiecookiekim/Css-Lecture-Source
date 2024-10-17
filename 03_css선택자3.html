@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> /* 24-10-17 목 5교시 */
+        /* 형제 관계 선택자 */
+        #div-test1{
+            background: red;
+        }
+        /* 해당 요소 바로 다음에 특정 타입요소 선택 */
+        #div-test1 + div{
+            background: green;
+        }
+        /* 해당 요소보다 뒤에 존재하는 특정 타입요소 모두 선택 */
+        /* 뒤에 영향이 미치기 때문에 주석 */
+        /* #div-test2 ~ div{
+            background: plum;
+        } */
+         
+        /* 태그 종류 상관없이 형제 관계라면 가능*/
+         #test :first-child { /* 첫 번째 자식*/
+            background: rebeccapurple;
+         }
+         #test :last-child { /* 마지막 자식 */
+            background: red; /* 얘는 혼자 pre인데 마지막에 있어서 변경 되었음. */
+         }
+         /* 형제 관계 태그중 앞에서 수열번 째 태그 선택 */
+         #test :nth-child(2n){ /* 지정된 수 지정, (뒤에 n 붙으면 배수 지정) */
+            background: skyblue;
+         }
+         #test :nth-last-child(4){ /* 마지막을 기준으로 선택 */
+            background: bisque;
+         }
+         #test2 :first-of-type{ /* 위치가 아닌 형태로 접근 */
+            background: wheat; /* 제일 처음과 끝 지정 */
+         }
+         #test2 :last-of-type{ /* 위치가 아닌 형태로 접근 */
+            background: orangered; /* 둘 다 적용됨. (첫째이자 마지막) 이해*/
+         }
+         #test2 p:nth-of-type(2n){
+            background: teal;
+         }
+         #test2 p:nth-of-type(3){ /* p태그 내에서 뒤에서 3번째*/
+            background: darkgoldenrod;
+         }
+         #test3 p:not(:nth-child(2n-1)){ /* 2n-1은 홀수(1,3,5)이나 not이므로 짝수*/
+            background: orange;
+         }
+
+    </style>
+</head>
+<body>
+    <h2> 동위 선택자 </h2>
+    <p> 동위 관계(형제 관계)에서 뒤에 위치한 태그를 선택할 떄 사용. </p>
+    <pre> 바로 뒤의 요소를 선택할 시 선택자a + 선택자b {설정내용}을 사용하며
+        뒤에 있는 모든 요소를 선택할 시에는
+        선택자a ~ 선택자b {설정내용} 을 사용한다. </pre>
+        <!-- div#div-test${div-test$}*5 -->
+        <div id="div-test1">div-test1</div>
+        <div id="div-test2">div-test2</div>
+        <div id="div-test3">div-test3</div>
+        <div id="div-test4">div-test4</div>
+        <div id="div-test5">div-test5</div>
+<!-- 자바로 치면 메서드 --> <!-- second는 변수명--> <!-- document는 이 문서의 전체 -->
+        <script type="test/javascript">
+            window.onload = function(){  
+                let second =          
+                    document.querySelector('div[id=div-test2]');
+                 console.log(typeof second);
+            }
+        </script>
+        <hr>
+        <h2> 일반 구조 선택자 </h2>
+        <p> 특정한 위치에 있는 태그 선택하기(위치로 구분) </p>
+        <div id="test">
+            <p> 테스트1 </p>
+            <p> 테스트2 </p>
+            <p> 테스트3 </p>
+            <p> 테스트4 </p>
+            <p> 테스트5 </p>
+            <pre> 테스트6 </pre>
+        </div>
+        <hr>
+        <h2> (위치가 아닌) 형태 구조 선택자(태그로 구분) </h2>
+
+        <div id="test2">
+            <p> 테스트1 </p>
+            <p> 테스트2 </p>
+            <p> 테스트3 </p>
+            <p> 테스트4 </p>
+            <p> 테스트5 </p>
+            <pre> 테스트6 </pre>
+        </div>
+
+        <hr>
+        <h2> 부정 선택자 </h2>
+        <p> 지금까지의 선택자에 대해 반대로 적용하는 선택자 </p>
+        <div id="test3">
+            <p> 테스트1 </p>
+            <p> 테스트2 </p>
+            <p> 테스트3 </p>
+            <p> 테스트4 </p>
+            <p> 테스트5 </p>
+            <pre> 테스트6 </pre>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
