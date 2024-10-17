@@ -45,8 +45,20 @@
          #test2 p:nth-of-type(3){ /* p태그 내에서 뒤에서 3번째*/
             background: darkgoldenrod;
          }
+         /* 알아두면 좋은 애들 : (짝수 : even/2n , 홀수 : odd/2n-1) */
          #test3 p:not(:nth-child(2n-1)){ /* 2n-1은 홀수(1,3,5)이나 not이므로 짝수*/
             background: orange;
+         }
+         #test4 p::first-letter{ /* 한 글자 */
+            font: 50px bold;
+         }
+         #test4 p::first-line{ /* 한 줄*/
+            background: coral;
+         }
+         /* 사용자가 드래그한 글자 선택 */
+         /* :: 가상의 요소 */
+         #test4 p::selection{
+            background: red;
          }
 
     </style>
@@ -63,8 +75,9 @@
         <div id="div-test3">div-test3</div>
         <div id="div-test4">div-test4</div>
         <div id="div-test5">div-test5</div>
+        
 <!-- 자바로 치면 메서드 --> <!-- second는 변수명--> <!-- document는 이 문서의 전체 -->
-        <script type="test/javascript">
+        <script type="text/javascript">
             window.onload = function(){  
                 let second =          
                     document.querySelector('div[id=div-test2]');
@@ -105,6 +118,14 @@
             <p> 테스트5 </p>
             <pre> 테스트6 </pre>
         </div>
+        
+        <hr>
+        <h2> 문자 선택자 </h2>
+        <p> 태그 내부에 있는 특정 조건의 문자를 선택 </p>
+        <div id="test4">
+            <p> 절대음감절대음감절대음감절대음감 </p>
+        </div>
+        
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
